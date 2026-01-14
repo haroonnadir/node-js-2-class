@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
 
-app.listen(3000, () => {
-    console.log('Successfully connected on port 3000');
+// Set EJS as the view engine
+app.set("view engine", 'ejs');
+
+// Home route - Now renders the 'user.ejs' template
+app.get('/', (req, res) => {
+    res.render('user'); 
 });
 
-// Home route
-app.get('/', (req, res) => {
-    res.send('Server is running successfully!');
+app.listen(3000, () => {
+    console.log('Successfully connected on port 3000');
 });
